@@ -43,7 +43,9 @@ export const Products = () => {
                 onClick={() => nav(`/products/${el.id}`)}
               >
                 <img src={el.image} alt="" height="85%" width="100%" />
-                {/* display the results here */ el.title}
+                {/* display the results here */
+                
+                  el.title}
               </div>
             );
           })}

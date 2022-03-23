@@ -1,4 +1,7 @@
 import {
+  GET_CLICKED_DATA_FAILURE,
+  GET_CLICKED_DATA_REQ,
+  GET_CLICKED_DATA_SUCCESS,
   GET_DATA_FAILURE,
   GET_DATA_REQ,
   GET_DATA_SUCCESS,
@@ -10,6 +13,7 @@ const initState = {
   isLoading: false,
   isError: false,
   sortedProds: [],
+  clickedProd: [],
 };
 
 export const Reducer = (state = initState, { type, payload }) => {
@@ -25,7 +29,7 @@ export const Reducer = (state = initState, { type, payload }) => {
         ...state,
         isLoading: false,
         products: [...payload],
-        sortedProds:[...payload],
+        sortedProds: [...payload],
         isError: false,
       };
     case GET_DATA_FAILURE:
@@ -50,6 +54,26 @@ export const Reducer = (state = initState, { type, payload }) => {
           ...state,
           sortedProds: [...state.sortedProds.sort((a, b) => b.price - a.price)],
         };
+
+    case GET_CLICKED_DATA_REQ:
+      return {
+        ...state,
+        isLoading: true,
+      };
+    case GET_CLICKED_DATA_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        clickedProd: payload,
+        isError: false,
+      };
+    case GET_CLICKED_DATA_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        isError: true,
+      };
+
     default:
       return state;
   }
