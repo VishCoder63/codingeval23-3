@@ -1,0 +1,21 @@
+.card{
+width: 20%;
+height: 15rem;
+border: 1px solid teal;
+margin: 1.2rem;
+
+}
+
+#container{
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+
+  flex-wrap: wrap;
+}
+
+#productsSelector{
+width: 40%;
+height: 2rem;
+}
